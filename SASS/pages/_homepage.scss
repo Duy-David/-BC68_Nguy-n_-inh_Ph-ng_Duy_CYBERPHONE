@@ -1,0 +1,42 @@
+header {
+  padding: 20px 0;
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .header-logo {
+      @include styletext($blue1, $fw-bold, $fs-xl);
+    }
+    ul {
+      display: flex;
+      gap: 20px;
+      li {
+        position: relative;
+        a {
+          @include styletext($blue2, $fw-normal, $fs-base);
+        }
+        &::before {
+          content: "";
+          width: 0;
+          height: 4px;
+          background-color: $blue1;
+          position: absolute;
+          left: 0;
+          bottom: -10px;
+          transition: all 0.5s;
+        }
+        &:hover::before {
+          width: 100%;
+        }
+        &.active {
+          &::before {
+            width: 100%;
+          }
+          a {
+            color: $blue1;
+          }
+        }
+      }
+    }
+  }
+}

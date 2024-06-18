@@ -1,0 +1,49 @@
+// biến
+$bg-button:black;
+$text-button : white;
+$padding-btn: 10px 20px;
+.btn-demo{
+    border: none;
+    background-color: $bg-button;
+    color: $text-button;
+    padding: $padding-btn;
+    //parent selector(&): đại diện cho selector cha gần nhất
+    &:hover{
+        background: red;
+        color: white;
+    }
+
+}
+//nesested route
+.container{
+    h2{
+        background: red;
+        color: white;
+        span{
+            background-color: orange;
+        }
+    }
+
+    ul li{
+        background: green;
+        color: white;
+    }
+}
+//mixin
+@mixin stylebtn($padding,$bg,$color,$border){
+    padding:$padding;
+    border-radius: 12px;
+    background-color: $bg;
+    color: $color;
+    border: $border;
+    transition: all 0.5s;
+    &:hover{
+        background-color: $color;
+        color:$bg;
+    }
+}
+
+
+.btn-mixin{
+    @include stylebtn($padding-btn,$bg-button ,red , none )
+}
